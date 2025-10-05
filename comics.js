@@ -1,22 +1,28 @@
-const sheets = document.querySelectorAll(".sheet");
-const leftBtn = document.querySelector(".arrow.left");
-const rightBtn = document.querySelector(".arrow.right");
-
-let current = 0;
-
-function openPage() {
-  if (current < sheets.length) {
-    sheets[current].classList.add("flipped");
-    current++;
+document.addEventListener('DOMContentLoaded', function() {
+  // Простая инициализация для скролл-версии комикса
+  const comicsContent = document.querySelector('.comics-content');
+  
+  if (comicsContent) {
+    // Добавляем плавную прокрутку
+    comicsContent.style.scrollBehavior = 'smooth';
+    
+    // Добавляем поддержку клавиатуры для навигации
+    document.addEventListener('keydown', function(event) {
+      const scrollAmount = 200; // пикселей для прокрутки
+      
+      if (event.key === 'ArrowDown' || event.key === 'PageDown') {
+        event.preventDefault();
+        comicsContent.scrollBy(0, scrollAmount);
+      } else if (event.key === 'ArrowUp' || event.key === 'PageUp') {
+        event.preventDefault();
+        comicsContent.scrollBy(0, -scrollAmount);
+      } else if (event.key === 'Home') {
+        event.preventDefault();
+        comicsContent.scrollTo(0, 0);
+      } else if (event.key === 'End') {
+        event.preventDefault();
+        comicsContent.scrollTo(0, comicsContent.scrollHeight);
+      }
+    });
   }
-}
-
-function closePage() {
-  if (current > 0) {
-    current--;
-    sheets[current].classList.remove("flipped");
-  }
-}
-
-rightBtn.addEventListener("click", openPage);
-leftBtn.addEventListener("click", closePage);
+});

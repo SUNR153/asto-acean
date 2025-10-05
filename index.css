@@ -8,32 +8,12 @@ body {
   overflow-x: hidden;
 }
 
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 60px;
-  padding: 30px 0;
-  font-size: 18px;
-  text-transform: lowercase;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.3s;
-}
-
-nav a:hover {
-  color: #aab6ff;
-  text-shadow: 0 0 8px #aab6ff;
-}
-
 .hero {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 60px 100px;
+  min-height: calc(100vh - 120px);
 }
 
 .text {
@@ -41,7 +21,7 @@ nav a:hover {
 }
 
 .text h1 {
-  font-family: 'Chakra Petch', sans-serif;
+  font-family: 'Orbitron', sans-serif;
   font-weight: 600;
   font-size: 38px;
   color: #b1b8ff;
@@ -49,7 +29,7 @@ nav a:hover {
 }
 
 .text p {
-  font-family: 'Chakra Petch', sans-serif;
+  font-family: 'Orbitron', sans-serif;
   margin-top: 20px;
   font-size: 16px;
   color: #ddd;
@@ -79,8 +59,7 @@ nav a:hover {
 
 .cards {
   position: relative;
-  left: 85px;
-  down: 70px;
+  left: 55px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -88,29 +67,95 @@ nav a:hover {
 }
 
 .card {
-  width: 270px;
-  height: 380px;
+  width: 350px;
+  height: 450px;
   border-radius: 40px;
-  background: #dcdcdc;
+  background: url("images/page3.png") no-repeat center center/cover;
   box-shadow: 4px 8px 12px rgba(0, 0, 0, 0.3);
   position: absolute;
 }
 
-.accessibility-btn {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: rgba(255,255,255,0.15);
-  color: white;
-  border: 1px solid rgba(255,255,255,0.4);
-  border-radius: 10px;
-  padding: 10px 14px;
-  font-size: 14px;
-  cursor: pointer;
-  backdrop-filter: blur(6px);
-  transition: 0.3s;
+/* Адаптивность для главной страницы */
+@media (max-width: 1024px) {
+  .hero {
+    padding: 40px 60px;
+  }
+  
+  .text h1 {
+    font-size: 32px;
+  }
+  
+  .card {
+    width: 220px;
+    height: 320px;
+  }
+  
+  .cards {
+    left: 40px;
+    margin-right: 40px;
+  }
 }
 
-.accessibility-btn:hover {
-  background: rgba(255,255,255,0.3);
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    padding: 30px 20px;
+    text-align: center;
+  }
+  
+  .text {
+    max-width: 100%;
+    margin-bottom: 40px;
+  }
+  
+  .text h1 {
+    font-size: 28px;
+  }
+  
+  .text p {
+    font-size: 14px;
+    max-width: 100%;
+  }
+  
+  .cards {
+    position: static;
+    left: auto;
+    margin-right: 0;
+    justify-content: center;
+  }
+  
+  .card {
+    position: relative;
+    width: 200px;
+    height: 280px;
+    margin: 0 10px;
+  }
+  
+  .card2 {
+    display: none; /* Скрываем вторую карту на мобильных */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 20px 15px;
+  }
+  
+  .text h1 {
+    font-size: 24px;
+  }
+  
+  .text p {
+    font-size: 14px;
+  }
+  
+  .start-btn {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+  
+  .card {
+    width: 160px;
+    height: 220px;
+  }
 }
