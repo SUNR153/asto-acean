@@ -3,7 +3,7 @@ body {
   padding: 0;
   font-family: 'Orbitron', sans-serif;
   color: white;
-  background: url('background.jpg') no-repeat center center/cover;
+  background: url('background/background1.jpg') no-repeat center center/cover;
   height: 100vh;
   overflow-x: hidden;
 }
@@ -79,6 +79,8 @@ nav a:hover {
 
 .cards {
   position: relative;
+  left: 85px;
+  down: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -92,16 +94,6 @@ nav a:hover {
   background: #dcdcdc;
   box-shadow: 4px 8px 12px rgba(0, 0, 0, 0.3);
   position: absolute;
-}
-
-.card1 {
-  z-index: 2;
-  transform: translateX(30px);
-}
-
-.card2 {
-  z-index: 1;
-  transform: translateX(70px);
 }
 
 .accessibility-btn {
