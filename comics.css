@@ -1,0 +1,105 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Orbitron', sans-serif;
+  background: url('background.jpg') no-repeat center center/cover;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 20px;
+  font-size: 18px;
+  font-family: 'Press Start 2P', cursive;
+}
+nav a { color: white; text-decoration: none; }
+nav a:hover { color: #a8b6ff; }
+
+.title {
+  margin: 20px 0;
+  font-size: 28px;
+  color: #a8b6ff;
+  text-align: center;
+}
+
+.book-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+  position: relative;
+}
+
+.book {
+  width: 800px;
+  height: 500px;
+  position: relative;
+  perspective: 2000px;
+  transform-style: preserve-3d;
+  transition: transform 1s ease-in-out;
+}
+
+.book.opened {
+  transform: translateX(50px);
+}
+.book.closed {
+  transform: translateX(0);
+}
+
+.sheet {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 1s ease-in-out;
+}
+
+.front, .back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.front img, .back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
+.flipped {
+  transform: rotateY(-180deg);
+  z-index: 0;
+}
+
+.arrow {
+  font-size: 40px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  padding: 10px;
+  z-index: 10;
+}
+.arrow:hover { transform: scale(1.2); color: #a8b6ff; }
+
+.left { position: absolute; left: -60px; top: 50%; transform: translateY(-50%); }
+.right { position: absolute; right: -60px; top: 50%; transform: translateY(-50%); }
+
+.footer {
+  margin-top: 20px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 14px;
+}
