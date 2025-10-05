@@ -46,7 +46,6 @@ nav a:hover {
   background: rgba(168, 182, 255, 0.1);
 }
 
-/* Мобильное меню */
 .mobile-menu-toggle {
   display: none;
   background: none;
@@ -165,7 +164,6 @@ h1, h2, h3 {
   box-shadow: 0 8px 30px rgba(168, 182, 255, 0.3);
 }
 
-/* Стилизация скроллбара */
 .comics-content::-webkit-scrollbar {
   width: 8px;
 }
@@ -192,7 +190,6 @@ footer {
   font-size: 14px;
 }
 
-/* Планшеты и маленькие ноутбуки */
 @media (max-width: 1024px) {
   .comics-container {
     padding: 0 15px;
@@ -211,7 +208,6 @@ footer {
   }
 }
 
-/* Мобильные устройства */
 @media (max-width: 768px) {
   nav {
     padding: 15px;
@@ -277,7 +273,6 @@ footer {
   }
 }
 
-/* Маленькие мобильные устройства */
 @media (max-width: 480px) {
   nav {
     padding: 10px;

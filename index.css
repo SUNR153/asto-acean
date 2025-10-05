@@ -75,7 +75,6 @@ body {
   position: absolute;
 }
 
-/* Адаптивность для главной страницы */
 @media (max-width: 1024px) {
   .hero {
     padding: 40px 60px;
@@ -132,7 +131,7 @@ body {
   }
   
   .card2 {
-    display: none; /* Скрываем вторую карту на мобильных */
+    display: none;
   }
 }
 

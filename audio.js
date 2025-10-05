@@ -1,9 +1,8 @@
-// Фоновая музыка для сайта Stormy Comics
 class BackgroundAudio {
   constructor() {
     this.audio = null;
     this.isPlaying = false;
-    this.volume = 0.3; // Громкость по умолчанию (30%)
+    this.volume = 0.3;
     this.isMuted = false;
     this.createAudioElement();
     this.createAudioControls();
@@ -11,20 +10,17 @@ class BackgroundAudio {
   }
 
   createAudioElement() {
-    // Создаем элемент audio
     this.audio = document.createElement('audio');
     this.audio.src = 'music/ambient.mp3';
     this.audio.loop = true;
     this.audio.volume = this.volume;
     this.audio.preload = 'auto';
     
-    // Добавляем скрытый элемент в body
     this.audio.style.display = 'none';
     document.body.appendChild(this.audio);
   }
 
   createAudioControls() {
-    // Создаем панель управления аудио
     const audioPanel = document.createElement('div');
     audioPanel.id = 'audio-controls';
     audioPanel.innerHTML = `
@@ -41,7 +37,6 @@ class BackgroundAudio {
       </div>
     `;
 
-    // Стили для панели управления
     const style = document.createElement('style');
     style.textContent = `
       #audio-controls {
@@ -195,7 +190,6 @@ class BackgroundAudio {
     const muteBtn = document.getElementById('audio-mute');
     const volumeSlider = document.getElementById('volume-slider');
 
-    // Воспроизведение/пауза
     playPauseBtn.addEventListener('click', () => {
       if (this.isPlaying) {
         this.pause();
@@ -204,24 +198,20 @@ class BackgroundAudio {
       }
     });
 
-    // Отключение звука
     muteBtn.addEventListener('click', () => {
       this.toggleMute();
     });
 
-    // Регулировка громкости
     volumeSlider.addEventListener('input', (e) => {
       this.setVolume(parseFloat(e.target.value));
     });
 
-    // Автоматическое воспроизведение при взаимодействии пользователя
     document.addEventListener('click', () => {
       if (!this.isPlaying && !this.isMuted) {
         this.play();
       }
     }, { once: true });
 
-    // Сохранение состояния аудио в localStorage
     this.loadAudioState();
   }
 
@@ -313,7 +303,6 @@ class BackgroundAudio {
     }
   }
 
-  // Публичные методы для внешнего управления
   getAudioState() {
     return {
       isPlaying: this.isPlaying,
@@ -346,12 +335,10 @@ class BackgroundAudio {
   }
 }
 
-// Инициализация фоновой музыки при загрузке DOM
 document.addEventListener('DOMContentLoaded', () => {
   window.backgroundAudio = new BackgroundAudio();
 });
 
-// Экспорт для использования в других модулях
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = BackgroundAudio;
 }

@@ -1,6 +1,4 @@
-// Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', function() {
-  // Функция доступности
   const accessibilityBtn = document.getElementById("accessibilityToggle");
   const isAccessible = localStorage.getItem("accessibleMode") === "true";
 
@@ -20,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Мобильное меню
   const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
   const navLinks = document.querySelector('.nav-links');
 
@@ -28,7 +25,6 @@ document.addEventListener('DOMContentLoaded', function() {
     mobileMenuToggle.addEventListener('click', function() {
       navLinks.classList.toggle('active');
       
-      // Меняем иконку
       if (navLinks.classList.contains('active')) {
         mobileMenuToggle.textContent = '✕';
       } else {
@@ -36,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
 
-    // Закрываем меню при клике на ссылку
     const navLinksItems = navLinks.querySelectorAll('a');
     navLinksItems.forEach(link => {
       link.addEventListener('click', function() {
@@ -45,7 +40,6 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
 
-    // Закрываем меню при клике вне его
     document.addEventListener('click', function(event) {
       if (!mobileMenuToggle.contains(event.target) && !navLinks.contains(event.target)) {
         navLinks.classList.remove('active');
