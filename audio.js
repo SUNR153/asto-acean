@@ -25,10 +25,10 @@ class BackgroundAudio {
     audioPanel.id = 'audio-controls';
     audioPanel.innerHTML = `
       <div class="audio-panel">
-        <button id="audio-play-pause" class="audio-btn" title="Воспроизвести/Пауза">
+        <button id="audio-play-pause" class="audio-btn" title="Play/Pause">
           ▶️
         </button>
-        <button id="audio-mute" class="audio-btn" title="Отключить звук">
+        <button id="audio-mute" class="audio-btn" title="Sound off">
           🔊
         </button>
         <div class="volume-slider-container">
@@ -222,7 +222,7 @@ class BackgroundAudio {
         this.updatePlayButton();
         this.saveAudioState();
       }).catch(error => {
-        console.log('Автовоспроизведение заблокировано браузером:', error);
+        console.log('auto-playback is blocked by the browser:', error);
       });
     }
   }
@@ -257,7 +257,7 @@ class BackgroundAudio {
     const playPauseBtn = document.getElementById('audio-play-pause');
     if (playPauseBtn) {
       playPauseBtn.textContent = this.isPlaying ? '⏸️' : '▶️';
-      playPauseBtn.title = this.isPlaying ? 'Пауза' : 'Воспроизвести';
+      playPauseBtn.title = this.isPlaying ? 'Pause' : 'Play';
     }
   }
 
@@ -265,7 +265,7 @@ class BackgroundAudio {
     const muteBtn = document.getElementById('audio-mute');
     if (muteBtn) {
       muteBtn.textContent = this.isMuted ? '🔇' : '🔊';
-      muteBtn.title = this.isMuted ? 'Включить звук' : 'Отключить звук';
+      muteBtn.title = this.isMuted ? 'Sound on' : 'Sound of';
     }
   }
 
@@ -299,7 +299,7 @@ class BackgroundAudio {
         this.updateMuteButton();
       }
     } catch (error) {
-      console.log('Ошибка загрузки состояния аудио:', error);
+      console.log('error loading audio status:', error);
     }
   }
 

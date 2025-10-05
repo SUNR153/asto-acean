@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
   if (isAccessible) {
     document.body.classList.add("accessible");
     if (accessibilityBtn)
-      accessibilityBtn.textContent = "🔙 Обычная версия";
+      accessibilityBtn.textContent = "🔙 Common version";
   }
 
   if (accessibilityBtn) {
@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const enabled = document.body.classList.toggle("accessible");
       localStorage.setItem("accessibleMode", enabled);
       accessibilityBtn.textContent = enabled
-        ? "🔙 Обычная версия"
-        : "👁 Версия для слабовидящих";
+        ? "🔙 Common version"
+        : "👁 Version for the visually impared";
     });
   }
 
